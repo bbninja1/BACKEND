@@ -7,8 +7,8 @@ const cors = require('cors');
 const hsts = require('./middleware/hsts.js');
 const mongoose = require('mongoose')
 
-//mongoose.connect(process.env.MONGODB_URL).then(() => console.log('DB connected'));
-mongoose.connect('mongodb+srv://ST10081854:OImcLS6eMik1J3zL@cluster0.i96ywnf.mongodb.net/?retryWrites=true&w=majority').then(() => console.log('DB connected'));
+mongoose.connect(process.env.MONGODB_URL).then(() => console.log('DB connected'));
+//mongoose.connect('mongodb+srv://ST10081854:OImcLS6eMik1J3zL@cluster0.i96ywnf.mongodb.net/?retryWrites=true&w=majority').then(() => console.log('DB connected'));
 
 app.use(cors({ origin: 'https://localhost:3000', optionsSuccessStatus: 200}))
 

@@ -9,7 +9,9 @@ const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGODB_URL).then(() => console.log('DB connected'));
 
-app.use(cors({ origin: 'https://localhost:3000', optionsSuccessStatus: 200}))
+app.use(cors({ origin: 'http://localhost:4200', optionsSuccessStatus: 200}))
+app.use(express.json());
+app.use(hsts);
 
 app.use((reg,res,next)=>
 {
@@ -18,9 +20,6 @@ app.use((reg,res,next)=>
  res.setHeader('Access-Control-Allow-Methods', '*');
  next();
 });
-
-app.use(express.json());
-app.use(hsts);
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user'));

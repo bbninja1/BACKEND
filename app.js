@@ -6,14 +6,15 @@ const fs = require('fs');
 const cors = require('cors');
 const hsts = require('./middleware/hsts.js');
 const mongoose = require('mongoose');
-const { default: helmet } = require('helmet');
+//const { default: helmet } = require('helmet');
+//const morgan = require("morgan");
 
 mongoose.connect(process.env.MONGODB_URL).then(() => console.log('DB connected'));
 
 app.use(cors({ origin: 'http://localhost:4200', optionsSuccessStatus: 200}))
 app.use(express.json());
-app.use(helmet())
-app.use(morgan("tiny"))
+//app.use(helmet())
+//app.use(morgan("tiny"))
 app.use(hsts);
 
 app.use((reg,res,next)=>
